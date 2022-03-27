@@ -7,12 +7,44 @@ const formInputSource = node('file_type_custom_form')
 const inputSource = node('source')
 
 let lines = null
+let defaultLines = null
 
+let loadLines = (arr) => {
+    lines = array2list(arr)
+}
 let loadDefaultLines = async () => {
-    lines = await ajax('/default.json').then(array2list)
+    if (defaultLines === null)
+        defaultLines = await ajax('/default.json')
+
+    loadLines(defaultLines)
 }
 
-loadDefaultLines()
+let parseFile = async (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        on(reader, 'load', ev => {
+            try {
+                resolve(JSON.parse(ev.target.result))
+            } catch (e) {
+                reject(e)
+            }
+        })
+        reader.readAsText(file)
+    })
+
+}
+
+on(inputSource, 'change', async e => {
+    const file = e.target.files[0]
+    if (!file) return
+
+    try {
+        loadLines(await parseFile(file))
+    } catch (e) {
+        // TODO: show error to user
+    }
+
+})
 
 on(buttonRun, 'click', e => {
     let shuffledLines = shuffle(lines)
@@ -23,11 +55,23 @@ on(buttonRun, 'click', e => {
 })
 
 on(radioFileTypeDefault, 'change', e => {
-    if (e.target.checked)
-        hide(formInputSource)
+    if (!e.target.checked) return
+
+    hide(formInputSource)
+    loadDefaultLines()
 })
 
-on(radioFileTypeCustom, 'change', e => {
-    if (e.target.checked)
-        show(formInputSource)
+on(radioFileTypeCustom, 'change', async e => {
+    if (!e.target.checked) return
+
+    if (inputSource.files[0]) {
+        try {
+            loadLines(await parseFile(inputSource.files[0]))
+        } catch (e) {
+            // TODO: show error to user
+        }
+    }
+    show(formInputSource)
 })
+
+loadDefaultLines()
