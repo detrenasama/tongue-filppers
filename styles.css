@@ -1,0 +1,61 @@
+:root {
+    font-family: "Ubuntu", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+body {
+    background-color: #e6e6e6;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+.copyright {
+    text-align: center;
+    padding: 1em;
+}
+
+
+.button {
+    background: #1776a9;
+    color: white;
+    border: 1px solid #094f71;
+    border-radius: .3em;
+    transition: background-color .1s ease;
+    cursor: pointer;
+    padding: .8em 1.2em;
+    margin: .5em 1em;
+}
+
+.button:hover {
+    background: #2c8ec3;
+}
+
+.body {
+    max-width: 1024px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #efefef;
+    display: flex;
+    flex-direction: column;
+}
+
+.tools {
+    text-align: center;
+}
+
+.content {
+    flex: 100;
+    padding: 2rem;
+}
+
+p {
+    margin-top: .1rem;
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
+    text-align: justify;
+}
