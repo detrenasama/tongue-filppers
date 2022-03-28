@@ -1,5 +1,10 @@
 :root {
-    font-family: "Ubuntu", sans-serif;
+    --ifm-heading-color: #888;
+    --ifm-content-text-color: #555;
+    --ifm-font-family-base:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    --ifm-heading-font-family: var(--ifm-font-family-base);
+    --ifm-heading-font-weight: 300;
+    --ifm-heading-line-height: inherit;
 }
 
 * {
@@ -8,31 +13,23 @@
 }
 
 body {
-    background-color: #e6e6e6;
-    color: #333;
+    background-color: #fff;
+    color: var(--ifm-content-text-color);
     padding: 0;
     margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--ifm-heading-color);
+    font-family: var(--ifm-heading-font-family);
+    font-weight: var(--ifm-heading-font-weight);
+    line-height: var(--ifm-heading-line-height);
+    margin: .5rem 0 1rem 0;
 }
 
 .copyright {
     text-align: center;
     padding: 1em;
-}
-
-
-.button {
-    background: #1776a9;
-    color: white;
-    border: 1px solid #094f71;
-    border-radius: .3em;
-    transition: background-color .1s ease;
-    cursor: pointer;
-    padding: .8em 1.2em;
-    margin: .5em 1em;
-}
-
-.button:hover {
-    background: #2c8ec3;
 }
 
 .body {
@@ -44,18 +41,44 @@ body {
     flex-direction: column;
 }
 
-.tools {
+.header {
     text-align: center;
 }
 
+.header, .tools {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 2rem;
+}
+
+
+.tools {
+}
+
 .content {
-    flex: 100;
-    padding: 2rem;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1024px;
+}
+
+.pure-group label {
+    color: var(--ifm-heading-color);
+    font-weight: var(--ifm-heading-font-weight);
+    font-size: 0.9rem;
+    padding-left: 0.4rem;
+    padding-bottom: 0.3rem;
 }
 
 p {
-    margin-top: .1rem;
-    margin-bottom: .5rem;
-    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
     text-align: justify;
+}
+
+.pure-form .pure-group input[type=checkbox],
+.pure-form .pure-group input[type=radio] {
+    display: inline;
 }
