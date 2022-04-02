@@ -1,10 +1,10 @@
-const buttonRun = node('run')
-const inputLinesCountInput = node('lines_count')
-const contentPlaceholder = node('content')
-const radioFileTypeDefault = node('file_type_default')
-const radioFileTypeCustom = node('file_type_custom')
-const formInputSource = node('file_type_custom_form')
-const inputSource = node('source')
+const buttonRun = findNode('run')
+const inputLinesCountInput = findNode('lines_count')
+const contentPlaceholder = findNode('content')
+const radioFileTypeDefault = findNode('file_type_default')
+const radioFileTypeCustom = findNode('file_type_custom')
+const formInputSource = findNode('file_type_custom_form')
+const inputSource = findNode('source')
 
 let lines = null
 let defaultLines = null
@@ -41,7 +41,9 @@ on(inputSource, 'change', async e => {
     try {
         loadLines(await parseFile(file))
     } catch (e) {
-        // TODO: show error to user
+	dialogError("Ошибка")("Не удалось прочитать файл. Возможно, синтаксические ошибки")
+	radioFileTypeDefault.checked = true
+	hide(formInputSource)
     }
 
 })
@@ -51,7 +53,7 @@ on(buttonRun, 'click', e => {
     let elements = map(p)(take(inputLinesCountInput.value)(shuffledLines))
 
     contentPlaceholder.innerHTML = ""
-    map(el => contentPlaceholder.appendChild(el))(elements)
+    map(el => contentPlaceholder.appendChild( el({}) ))(elements)
 })
 
 on(radioFileTypeDefault, 'change', e => {
@@ -68,7 +70,9 @@ on(radioFileTypeCustom, 'change', async e => {
         try {
             loadLines(await parseFile(inputSource.files[0]))
         } catch (e) {
-            // TODO: show error to user
+	    dialogError("Ошибка")("Не удалось прочитать файл. Возможно, синтаксические ошибки")
+	    radioFileTypeDefault.checked = true
+	    hide(formInputSource)
         }
     }
     show(formInputSource)

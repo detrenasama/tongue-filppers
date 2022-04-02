@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="pure.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="body">
 <div class="main">
     <div class="content">
         <div class="header">
@@ -30,15 +30,17 @@
                     </label>
                 </fieldset>
 
+                <fieldset class="pure-group" id="file_type_custom_form" style="display: none">
+                    <input type="file" class="form-control" id="source" accept=".json"/>
+                    <label for="source" class="pure-button pure-button-secondary">Загрузить файл</label>
+                </fieldset>
+
                 <fieldset class="pure-group">
                     <label for="lines_count" class="form-control-label">Количество скороговорок</label>
                     <input type="number" id="lines_count" class="form-control" value="5" min="1" width="10">
                 </fieldset>
 
-                <div class="form-group" id="file_type_custom_form" style="display: none">
-                    <input type="file" id="source" accept=".json"/>
-                    <!--            <label for="source" class="button">Загрузить файл</label>-->
-                </div>
+
                 <div class="form-group">
                     <div class="text-center">
                         <button id="run" type="button" class="pure-button pure-button-primary">Сгенерировать</button>
@@ -51,7 +53,7 @@
         <div id="content">
         </div>
         <div class="footer">
-            <div class="copyright">&copy; Detrena</div>
+            <div class="copyright">&copy; Kalpamer</div>
         </div>
     </div>
 </div>

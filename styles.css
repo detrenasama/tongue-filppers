@@ -82,3 +82,49 @@ p {
 .pure-form .pure-group input[type=radio] {
     display: inline;
 }
+
+.pure-form .pure-group input[type=file].form-control {
+    display: none;
+}
+
+
+.modal-dimmer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #33333366;
+}
+.modal {
+    max-width: 764px;
+    position: relative;
+    min-height: 100px;
+    margin: 0 auto;
+    top: 20%;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 3px #33333355;
+}
+.modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+.modal-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888888;
+    padding: 0 2rem;
+}
+.modal-body {
+    border-bottom: 1px solid #ddd;
+}
+.modal-content {
+    padding: 1rem;
+}
+.modal-footer {
+    padding: 1rem;
+}
+.modal-buttons {
+    text-align: right;
+}
