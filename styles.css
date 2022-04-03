@@ -128,3 +128,9 @@ p {
 .modal-buttons {
     text-align: right;
 }
+
+
+.pure-form .pure-group input[type=file] + label {
+    display: inline-block;
+    padding: 0.7em;
+}
