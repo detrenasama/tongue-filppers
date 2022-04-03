@@ -19,21 +19,6 @@ let loadDefaultLines = async () => {
     loadLines(defaultLines)
 }
 
-let parseFile = async (file) => {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        on(reader, 'load', ev => {
-            try {
-                resolve(JSON.parse(ev.target.result))
-            } catch (e) {
-                reject(e)
-            }
-        })
-        reader.readAsText(file)
-    })
-
-}
-
 on(inputSource, 'change', async e => {
     const file = e.target.files[0]
     if (!file) return

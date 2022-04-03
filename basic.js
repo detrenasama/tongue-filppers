@@ -33,6 +33,24 @@ const show = node => node.style.display = null
 const ajax = async url => fetch(url).then(response => response.ok ? response.json() : null)
 
 
+
+const parseFile = async (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        on(reader, 'load', ev => {
+            try {
+                resolve(JSON.parse(ev.target.result))
+            } catch (e) {
+                reject(e)
+            }
+        })
+        reader.readAsText(file)
+    })
+
+}
+
+
+
 const createModal = options => {
     options = Object.assign({
 	buttons: ["OK"],
