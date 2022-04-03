@@ -14,7 +14,7 @@ let loadLines = (arr) => {
 }
 let loadDefaultLines = async () => {
     if (defaultLines === null)
-        defaultLines = await ajax('default.json')
+        defaultLines = await ajax('./default.json')
 
     loadLines(defaultLines)
 }
