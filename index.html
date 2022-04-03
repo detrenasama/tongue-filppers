@@ -6,7 +6,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Генератор скороговорок</title>
-    <link rel="stylesheet" href="pure.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body id="body">
@@ -17,33 +16,33 @@
             <h2>Сгенерируйте случайный набор скороговорок</h2>
         </div>
         <div class="tools">
-            <div class="pure-form pure-form-stacked">
-                <fieldset class="pure-group">
+            <div class="form form-stacked">
+                <div class="form-group">
                     <label class="form-control-label">Набор скороговорок</label>
 
-                    <label for="file_type_default" class="pure-radio">
+                    <label for="file_type_default" class="radio">
                         <input type="radio" name="file_type" id="file_type_default" value="default" checked /> Готовые
                     </label>
 
-                    <label for="file_type_custom" class="pure-radio">
+                    <label for="file_type_custom" class="radio">
                         <input type="radio" name="file_type" id="file_type_custom" value="custom"> Загрузить свои
                     </label>
-                </fieldset>
+                </div>
 
-                <fieldset class="pure-group" id="file_type_custom_form" style="display: none">
+                <div class="form-group" id="file_type_custom_form" style="display: none">
                     <input type="file" class="form-control" id="source" accept=".json"/>
-                    <label for="source" class="pure-button pure-button-secondary">Загрузить файл</label>
-                </fieldset>
+                    <label for="source" class="button button-secondary">Загрузить файл</label>
+                </div>
 
-                <fieldset class="pure-group">
+                <div class="form-group">
                     <label for="lines_count" class="form-control-label">Количество скороговорок</label>
                     <input type="number" id="lines_count" class="form-control" value="5" min="1" width="10">
-                </fieldset>
+                </div>
 
 
                 <div class="form-group">
                     <div class="text-center">
-                        <button id="run" type="button" class="pure-button pure-button-primary">Сгенерировать</button>
+                        <button id="run" type="button" class="button button-primary">Сгенерировать</button>
                     </div>
                 </div>
             </div>

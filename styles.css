@@ -1,10 +1,11 @@
 :root {
     --ifm-heading-color: #888;
     --ifm-content-text-color: #555;
-    --ifm-font-family-base:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     --ifm-heading-font-family: var(--ifm-font-family-base);
     --ifm-heading-font-weight: 300;
     --ifm-heading-line-height: inherit;
+
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
 * {
@@ -21,11 +22,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--ifm-heading-color);
-    font-family: var(--ifm-heading-font-family);
     font-weight: var(--ifm-heading-font-weight);
     line-height: var(--ifm-heading-line-height);
     margin: .5rem 0 1rem 0;
 }
+
+h1 { font-size: 2rem }
+h2 { font-size: 1.6rem }
+h3 { font-size: 1.3rem }
+h4 { font-size: 1.1rem }
+h5 { font-size: 1rem }
+h6 { font-size: .9rem }
 
 .copyright {
     text-align: center;
@@ -63,12 +70,30 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1024px;
 }
 
-.pure-group label {
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
     color: var(--ifm-heading-color);
     font-weight: var(--ifm-heading-font-weight);
     font-size: 0.9rem;
-    padding-left: 0.4rem;
-    padding-bottom: 0.3rem;
+    margin-bottom: 0.3rem;
+    
+}
+
+input.form-control {
+    border: 1px solid lightslategrey;
+    border-radius: 5px;
+    padding: 0.4rem 0.7rem;
+    background: white;
+}
+
+.form-control-label {
+    display: block;
+}
+.form-group label.button {
+    display: inline-block;
 }
 
 p {
@@ -78,13 +103,37 @@ p {
     text-align: justify;
 }
 
-.pure-form .pure-group input[type=checkbox],
-.pure-form .pure-group input[type=radio] {
+.form-group input[type=checkbox],
+.form-group input[type=radio] {
     display: inline;
 }
 
-.pure-form .pure-group input[type=file].form-control {
+.form-group label.radio {
+    display: block;
+}
+
+.form-group input[type=file].form-control {
     display: none;
+}
+
+
+.button {
+    background: wheat;
+    box-shadow: 0 1px 6px 1px #b19155;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    color: #222;
+    cursor: pointer;
+    transition: color .2s ease, background .2s ease;
+}
+
+.button:hover {
+    background: #f5d69d;
+}
+
+.button-secondary {
+    background: #e5e5e5;
+    box-shadow: 0 1px 6px 1px #c5c5c5;
 }
 
 
@@ -130,7 +179,9 @@ p {
 }
 
 
-.pure-form .pure-group input[type=file] + label {
+.form-group input[type=file] + label {
     display: inline-block;
     padding: 0.7em;
 }
+
+/* TODO: drop pure.css */
